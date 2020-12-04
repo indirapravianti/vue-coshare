@@ -4,7 +4,7 @@
   >
     <v-img
       :src="course.courseImage"
-      height="100%"
+      height="200"
     />
 
     <v-card-subtitle class="font-weight-light">

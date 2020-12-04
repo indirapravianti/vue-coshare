@@ -2,7 +2,7 @@
     <div>
         <v-sheet v-if="$vuetify.breakpoint.smAndUp"  class="mt-4 pa-8">
             <h3>Top Categories</h3>
-            <v-radio-group v-model="categoryFilter" :mandatory="true">
+            <v-radio-group :mandatory="true">
                 <v-radio v-for="(category, i) in categories" :key="i" :label="category" :value="i">
 
                 </v-radio>
@@ -14,7 +14,7 @@
                     Top Categories
                 </v-expansion-panel-header>
                 <v-expansion-panel-content>
-                    <v-radio-group v-model="categoryFilter" :mandatory="true">
+                    <v-radio-group :mandatory="true">
                         <v-radio v-for="(category, i) in categories" :key="i" :label="category" :value="i">
 
                         </v-radio>
@@ -36,7 +36,6 @@ export default {
                 'Web Development',
                 'Marketing'
             ],
-            categoriesFilter: 0,
             checkbox: true
         }
     }

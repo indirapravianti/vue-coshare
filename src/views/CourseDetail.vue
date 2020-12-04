@@ -45,15 +45,36 @@
       <v-row>
         <v-col md="9" lg="8">
           <p class="font-weight-bold">Syllabus</p>
-          <v-card depressed flat color="white" elevation="1.2" class="px-4 py-4" 
-              v-for="chapter in singleCourse.syllabus" v-bind:key="chapter.chapterName">
-            {{chapter.chapterName}}
-          </v-card>
+            <v-card depressed flat color="white" elevation="1.2" class="px-4 py-4 mb-4" 
+                v-for="chapter in singleCourse.syllabus" v-bind:key="chapter.chapterName">
+                <v-card-actions>
+                  <v-card-title>
+                    <p class="body-1">{{chapter.chapterName}}</p>
+                  </v-card-title>
+
+                  <v-spacer></v-spacer>
+                  <v-btn icon @click="show = !show">
+                    <v-icon>{{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
+                  </v-btn>
+                </v-card-actions>
+
+                <v-expand-transition>
+                  <div v-show="show">
+                    <v-divider></v-divider>
+                      <!-- <youtube 
+                          :video-id="chapter.chapterVideo" 
+                          player-height="320" 
+                          player-width="640"
+                          align="center"
+                      ></youtube> -->
+                  </div>
+                </v-expand-transition>
+            </v-card>
         </v-col>
         <v-col md="3" offset-lg="1" justify="center">
-            <v-card elevation="0">
+            <v-card elevation="0" height="300">
               <v-card-title class="font-weight-bold py-4 px-4">
-                <v-icon left>mdi-trophy-award</v-icon>Leaderboard</v-card-title>
+                <v-icon left color="primary">mdi-trophy-award</v-icon>Leaderboard</v-card-title>
             </v-card>
         </v-col>
       </v-row>
