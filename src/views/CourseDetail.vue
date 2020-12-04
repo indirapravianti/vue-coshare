@@ -3,7 +3,6 @@
   <v-container>
       <v-row>
         <v-col flex md="9" lg="8">
-              <!-- <img :width="235" :height="235" src="/img/dummy.jpg"> -->
               <v-card color="third" depressed class="mx-auto elevation-0">
                 <v-list-item three-line>
                   <v-img :src="singleCourse.courseImage" max-height="235" max-width="235" class="mr-5">
@@ -46,20 +45,20 @@
         <v-col md="9" lg="8">
           <p class="font-weight-bold">Syllabus</p>
             <v-card depressed flat color="white" elevation="1.2" class="px-4 py-4 mb-4" 
-                v-for="chapter in singleCourse.syllabus" v-bind:key="chapter.chapterName">
+                v-for="(chapter,index) in singleCourse.syllabus" v-bind:key="chapter.chapterName">
                 <v-card-actions>
                   <v-card-title>
                     <p class="body-1">{{chapter.chapterName}}</p>
                   </v-card-title>
 
                   <v-spacer></v-spacer>
-                  <v-btn icon @click="show = !show">
-                    <v-icon>{{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
+                  <v-btn icon  @click="selectedIndex = index">
+                    <v-icon>{{ index === selectedIndex ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
                   </v-btn>
                 </v-card-actions>
 
                 <v-expand-transition>
-                  <div v-show="show">
+                  <div v-show="index === selectedIndex">
                     <v-divider></v-divider>
                       <youtube 
                           :video-id="chapter.chapterVideo" 
