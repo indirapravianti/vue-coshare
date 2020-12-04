@@ -61,12 +61,12 @@
                 <v-expand-transition>
                   <div v-show="show">
                     <v-divider></v-divider>
-                      <!-- <youtube 
+                      <youtube 
                           :video-id="chapter.chapterVideo" 
                           player-height="320" 
                           player-width="640"
                           align="center"
-                      ></youtube> -->
+                      ></youtube>
                   </div>
                 </v-expand-transition>
             </v-card>
@@ -88,13 +88,14 @@ export default {
     props:['id'],
     data: function(){
       return {
-        singleCourse: null
+        singleCourse: null,
+        show: false
       }
     },
     methods: {
       getData() {
             var that = this
-            axios.get('http://ec2-100-27-5-186.compute-1.amazonaws.com/v1/api/course?id=' + this.id)
+            axios.get('http://ec2-54-146-85-74.compute-1.amazonaws.com/v1/api/course?id=' + this.id)
                  .then(function(response) {
                     that.singleCourse = response.data.body
                 })

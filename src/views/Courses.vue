@@ -31,7 +31,7 @@ export default {
   },
   mounted (){
             axios
-                .get('http://ec2-100-27-5-186.compute-1.amazonaws.com/v1/api/get_courses')
+                .get('http://ec2-54-146-85-74.compute-1.amazonaws.com/v1/api/get_courses')
                 .then((res)=>{this.courses = res.data.body})
                 .catch(err => console.log(err))
   }
