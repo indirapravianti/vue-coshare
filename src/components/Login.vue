@@ -11,7 +11,7 @@
         <v-btn @click.prevent="logIn" depressed block elevation="2" class="rounded-xl text-none px-6 py-6" color="primary">Login</v-btn>
       </v-card-actions>
       <v-card-actions>
-        <v-btn to="signup"  color="white" class="text-decoration-underline text-none">Don't have an account? Sign up now!</v-btn>
+        <v-btn to="signup" elevation="0" color="white" class="text-decoration-underline text-none">Don't have an account? Sign up now!</v-btn>
       </v-card-actions>
     </v-card>
   </v-content>

@@ -2,9 +2,9 @@
 <div>
   <v-container v-show="showPage">
       <v-row>
-        <v-col flex md="9" lg="8">
+        <v-col flex md="9" lg="7">
               <v-card color="third" depressed class="mx-auto elevation-0">
-                <v-list-item three-line>
+                <v-list-item flex three-line>
                   <v-img :src="singleCourse.courseImage" max-height="235" max-width="235" class="mr-5">
                   </v-img>
                   <v-list-item-content>
@@ -17,11 +17,11 @@
                     <v-list-item-subtitle>{{singleCourse.courseDesc}}
                     </v-list-item-subtitle>
                     <v-card-actions>
-                  <v-btn
-                    color="primary" class=" mt-2 rounded-xl px-4 py-4"
-                  >
-                    Get started now
-                  </v-btn>
+                      <v-btn
+                        color="primary" class=" mt-2 rounded-xl px-4 py-4"
+                      >
+                        Get started now
+                      </v-btn>
                 </v-card-actions>
                   </v-list-item-content>
                 </v-list-item>
@@ -42,7 +42,7 @@
       </v-row>
       <v-divider></v-divider>
       <v-row>
-        <v-col md="9" lg="8">
+        <v-col flex md="9" lg="7">
           <p class="font-weight-bold">Syllabus</p>
             <v-card depressed color="white" elevation="1.2" class="px-4 py-4 mb-4" 
                 v-for="(chapter,index) in singleCourse.syllabus" v-bind:key="chapter.chapterName">
@@ -62,8 +62,8 @@
                     <v-divider></v-divider>
                       <youtube 
                           :video-id="chapter.chapterVideo" 
-                          player-height="320" 
-                          player-width="640"
+                          :player-height="sheetHeight" 
+                          :player-width="sheetWidth"
                           align="center"
                       ></youtube>
                   </div>
@@ -84,42 +84,61 @@
 <script>
 import axios from 'axios'
 export default {
-    props:['id'],
-    data: function(){
-      return {
-        singleCourse: null,
-        selectedIndex: null,
-        showPage: false
-      }
-    },
-    methods: {
-      getData() {
-        var that = this
-        axios.get('http://ec2-54-146-85-74.compute-1.amazonaws.com/v1/api/course?id=' + this.id,
-              {
-                headers: {
-                  'Authorization' : 'Bearer ' + this.$store.state.authKey 
-                }
-              })
-              .then(function(response) {
-                that.singleCourse = response.data.body
-              })
-        },
-        show() {
-          if(this.$store.state.isLogin == true){
-            this.showPage = true
-          }
-          else {
-            this.$router.replace('/login')
-          }
-        }
-    },
-    mounted: function() {
-      this.getData()
-      this.show()
-    },
-    computed: {
-      
+  props:['id'],
+  data: function(){
+    return {
+      singleCourse: null,
+      selectedIndex: null,
+      showPage: false
     }
+  },
+  methods: {
+    getData() {
+      var that = this
+      axios.get('http://ec2-54-146-85-74.compute-1.amazonaws.com/v1/api/course?id=' + this.id,
+            {
+              headers: {
+                'Authorization' : 'Bearer ' + this.$store.state.authKey 
+              }
+            })
+            .then(function(response) {
+              that.singleCourse = response.data.body
+            })
+      },
+      show() {
+        if(this.$store.state.isLogin == true){
+          this.showPage = true
+        }
+        else {
+          this.$router.replace('/login')
+        }
+      }
+  },
+  mounted: function() {
+    this.getData()
+    this.show()
+  },
+  computed: {
+    sheetHeight() {
+            switch (this.$vuetify.breakpoint.name) {
+                case 'xs': return '300'
+                case 'sm': return '350'
+                case 'md': return '350'
+                case 'lg': return '350'                 
+                case 'xl': return '350'
+            }
+        return '300px'
+    },
+    sheetWidth() {
+            switch (this.$vuetify.breakpoint.name) {
+                case 'xs': return '400'
+                case 'sm': return '400'
+                case 'md': return '450'
+                case 'lg': return '600'                 
+                case 'xl': return '600'
+            }
+        return '300px'
+    }
+  }
 }
 </script>

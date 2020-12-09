@@ -52,30 +52,30 @@
 
 <script>
 export default {
-    data() {
-        return {
-            drawer: false,
-            items: [
-                {title: 'Home', link: '/'},
-                {title: 'Courses', link: 'courses'},
-                {title: 'Login', link: 'login'},
-                {title: 'Sign Up', link: 'signup'}
-            ]
-        }
-    },
-    methods: {
-      logout() {
-        this.$store.commit('reset')
-        this.$router.replace('/')
+  data() {
+      return {
+          drawer: false,
+          items: [
+              {title: 'Home', link: '/'},
+              {title: 'Courses', link: 'courses'},
+              {title: 'Login', link: 'login'},
+              {title: 'Sign Up', link: 'signup'}
+          ]
       }
-    },
-    computed: {
-      isLogin() {
-        return this.$store.state.isLogin
-      },
-      username(){
-        return this.$store.state.username
-      }
+  },
+  methods: {
+    logout() {
+      this.$store.commit('reset')
+      this.$router.replace('/')
     }
+  },
+  computed: {
+    isLogin() {
+      return this.$store.state.isLogin
+    },
+    username(){
+      return this.$store.state.username
+    }
+  }
 }
 </script>

@@ -18,7 +18,7 @@
         <v-btn @click.prevent="register" depressed block elevation="2" class="rounded-xl text-none px-6 py-6" color="primary">Register</v-btn>
       </v-card-actions>
       <v-card-actions>
-        <v-btn to="login" depressed color="white" class="text-decoration-underline text-none">Have an account? Log in now</v-btn>
+        <v-btn to="login" elevation="0" depressed color="white" class="text-decoration-underline text-none">Have an account? Log in now</v-btn>
       </v-card-actions>
     </v-card>
     </v-form>
@@ -29,44 +29,44 @@
 <script>
 import axios from 'axios'
 export default {
-    name: 'Signup',
-    data: function() {
-      return {
-        email: '',
-        username: '',
-        password:'',
-        error: false
-      }
-    },
-    methods: {
-      register() {
-        axios({
-          method: 'post',
-          url:'http://ec2-54-146-85-74.compute-1.amazonaws.com/v1/api/register',
-          data: {
-            username : this.username,
-            password : this.password,
-            email : this.email
-          }
-        })
-        .then((response) => {
-          if (response.data.statusCode == 200){
-            this.$router.push('/login')
-          }
-          else{
-            this.error = true
-          }
-        })
-      }
-    },
-    computed: {
-         fontSize() {
-             switch (this.$vuetify.breakpoint.name) {
-                 case 'xs': return 'headline'
-                 case 'sm': return 'headline'
-              }
-          return '300px'
-          }
-      }
+  name: 'Signup',
+  data: function() {
+    return {
+      email: '',
+      username: '',
+      password:'',
+      error: false
+    }
+  },
+  methods: {
+    register() {
+      axios({
+        method: 'post',
+        url:'http://ec2-54-146-85-74.compute-1.amazonaws.com/v1/api/register',
+        data: {
+          username : this.username,
+          password : this.password,
+          email : this.email
+        }
+      })
+      .then((response) => {
+        if (response.data.statusCode == 200){
+          this.$router.push('/login')
+        }
+        else{
+          this.error = true
+        }
+      })
+    }
+  },
+  computed: {
+    fontSize() {
+        switch (this.$vuetify.breakpoint.name) {
+            case 'xs': return 'headline'
+            case 'sm': return 'headline'
+        }
+    return '300px'
+    }
+  }
 }
 </script>

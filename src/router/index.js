@@ -14,23 +14,23 @@ const routes = [
   {
     path: '/login',
     name: 'Login',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Login.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../components/Login.vue')
   },
   {
     path: '/signup',
     name: 'Signup',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Signup.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../components/Signup.vue')
   },
   {
     path: '/courses',
     name: 'Courses',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Courses.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../components/Courses.vue')
   },
   {
     path: '/course/:id',
     name: 'CourseDetail',
     props: true,
-    component: () => import(/* webpackChunkName: "about" */ '../views/CourseDetail.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../components/CourseDetail.vue')
   }
 ]
 
