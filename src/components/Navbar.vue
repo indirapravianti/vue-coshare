@@ -20,7 +20,17 @@
             </v-toolbar-items>
 
                <v-spacer />
-            <v-toolbar-items class="hidden-xs-only">
+            
+              <v-toolbar-items v-if="isLogin" class="hidden-xs-only">
+              <v-btn text class="third--text">
+                Hello, {{username}}
+              </v-btn>
+              <v-btn @click.prevent="logout" text class="third--text">
+                LOGOUT
+              </v-btn>
+            </v-toolbar-items>
+
+              <v-toolbar-items v-else class="hidden-xs-only">
               <v-btn to="login" text class="third--text">
                 LOGIN
               </v-btn>
@@ -52,6 +62,20 @@ export default {
                 {title: 'Sign Up', link: 'signup'}
             ]
         }
+    },
+    methods: {
+      logout() {
+        this.$store.commit('reset')
+        this.$router.replace('/')
+      }
+    },
+    computed: {
+      isLogin() {
+        return this.$store.state.isLogin
+      },
+      username(){
+        return this.$store.state.username
+      }
     }
 }
 </script>

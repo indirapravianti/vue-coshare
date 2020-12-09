@@ -1,6 +1,6 @@
 <template>
 <div>
-  <v-container>
+  <v-container v-show="showPage">
       <v-row>
         <v-col flex md="9" lg="8">
               <v-card color="third" depressed class="mx-auto elevation-0">
@@ -44,7 +44,7 @@
       <v-row>
         <v-col md="9" lg="8">
           <p class="font-weight-bold">Syllabus</p>
-            <v-card depressed flat color="white" elevation="1.2" class="px-4 py-4 mb-4" 
+            <v-card depressed color="white" elevation="1.2" class="px-4 py-4 mb-4" 
                 v-for="(chapter,index) in singleCourse.syllabus" v-bind:key="chapter.chapterName">
                 <v-card-actions>
                   <v-card-title>
@@ -88,20 +88,38 @@ export default {
     data: function(){
       return {
         singleCourse: null,
-        show: false
+        selectedIndex: null,
+        showPage: false
       }
     },
     methods: {
       getData() {
-            var that = this
-            axios.get('http://ec2-54-146-85-74.compute-1.amazonaws.com/v1/api/course?id=' + this.id)
-                 .then(function(response) {
-                    that.singleCourse = response.data.body
-                })
+        var that = this
+        axios.get('http://ec2-54-146-85-74.compute-1.amazonaws.com/v1/api/course?id=' + this.id,
+              {
+                headers: {
+                  'Authorization' : 'Bearer ' + this.$store.state.authKey 
+                }
+              })
+              .then(function(response) {
+                that.singleCourse = response.data.body
+              })
+        },
+        show() {
+          if(this.$store.state.isLogin == true){
+            this.showPage = true
+          }
+          else {
+            this.$router.replace('/login')
+          }
         }
     },
     mounted: function() {
       this.getData()
+      this.show()
+    },
+    computed: {
+      
     }
 }
 </script>

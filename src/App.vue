@@ -1,6 +1,5 @@
 <template>
   <v-app >
-
     <v-main>
       <Navbar/>
         <router-view>
@@ -14,7 +13,6 @@
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
-
 export default {
   name: 'App',
 
@@ -26,6 +24,11 @@ export default {
   data: () => ({
     //
   }),
+  // computed: {
+  //   isLogin() {
+  //     return this.$store.state.isLogin
+  //   }
+  // }
 };
 </script>
 
