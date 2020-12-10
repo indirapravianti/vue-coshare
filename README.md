@@ -1,5 +1,8 @@
 # coshare
 
+Create an account to enjoy thousands of course videos. If you wish to create a course, you must log in first using your account.
+Feedback is welcome.
+
 ## Project setup
 ```
 npm install
