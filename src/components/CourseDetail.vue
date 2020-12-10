@@ -2,10 +2,9 @@
 <div>
   <v-container v-show="showPage">
       <v-row>
-        <v-col flex md="9" lg="7">
-              <v-card color="third" depressed class="mx-auto elevation-0">
-                <v-list-item flex three-line>
-                  <v-img :src="singleCourse.courseImage" max-height="235" max-width="235" class="mr-5">
+        <v-col md="9" lg="7">
+              <v-card d-flex justify="center" color="third" depressed class="mx-auto elevation-0">
+                  <v-img :src="singleCourse.courseImage" max-height="235" class="mr-5">
                   </v-img>
                   <v-list-item-content>
                     <div class="overline mb-4">
@@ -24,7 +23,6 @@
                       </v-btn>
                 </v-card-actions>
                   </v-list-item-content>
-                </v-list-item>
               </v-card>
         </v-col>
         <v-col md="2" offset-lg="1" justify="center">
