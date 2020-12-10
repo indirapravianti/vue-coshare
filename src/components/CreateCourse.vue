@@ -12,7 +12,7 @@
             </v-text-field>
 
             <p class="font-weight-bold">Course description</p>
-            <v-text-field v-model="desc" :counter="40" :rules="descRules" label="e.g. In this course, you will learn..." required>
+            <v-text-field v-model="desc" :counter="80" :rules="descRules" label="e.g. In this course, you will learn..." required>
             </v-text-field>
 
             <p class="font-weight-bold">Course category</p>
@@ -23,18 +23,19 @@
             <v-text-field v-model="img" label="Insert valid image URL" :rules="imageRules" required></v-text-field>
 
             <p class="font-weight-bold">Syllabus</p>
-            <div class="syllabus">
-                <div v-for="(chapter, index) in courseChapters" :key="index">
+            <div>
+                <div v-for="(chapter, index) in syllabus" :key="index">
                     <div>
-                        <v-text-field v-model="chapter.name" :counter="25" :rules="cnRules" required
-                            :name="`courseChapters[${index}][name]`" label="Chapter name"></v-text-field>
+                        <v-text-field v-model="chapter.chapterName" :counter="25" :rules="cnRules" required
+                            :name="`syllabus[${index}][chapterName]`" label="Chapter name"></v-text-field>
                     </div>
                     <div>
-                        <v-text-field v-model="chapter.video" :rules="cvRules" required
-                            :name="`courseChapters[${index}][video]`" label="Chapter video (URL)"></v-text-field>
+                        <v-text-field v-model="chapter.chapterVideo" :rules="cvRules" required
+                            :name="`syllabus[${index}][chapterVideo]`" label="Chapter video (URL)"></v-text-field>
                     </div>
                 </div>
             </div>
+            {{syllabus}}
             <div class="mt-6 mb-6">
                 <v-btn color="blue-grey darken-1" class="white--text" @click="addChapter">Add</v-btn>
             </div>
@@ -53,12 +54,14 @@ import axios from 'axios'
 
 export default {
     data: () => ({
-        courseChapters: [],
+        syllabus: [],
         title: '',
         creator: '',
         desc:'',
         select: '',
         img: '',
+        name: '',
+        video: '',
         error: false,
         items: [
             'Programming',
@@ -77,7 +80,7 @@ export default {
         ],
         descRules: [
             v => !!v || 'Course description is required',
-            v => (v && v.length <= 40) || 'Must be less than 40 characters',
+            v => (v && v.length <= 80) || 'Must be less than 80 characters',
         ],
         imageRules: [
             v => !!v || 'Course image URL is required'
@@ -92,7 +95,7 @@ export default {
         }),
     methods: {
         addChapter() {
-            this.courseChapters.push({
+            this.syllabus.push({
                 chapterName: '',
                 chapterVideo: ''
             })
@@ -113,7 +116,7 @@ export default {
                     courseDesc: this.desc,
                     courseCategory: this.select,
                     courseImage: this.img,
-                    syllabus: this.courseChapters
+                    syllabus: this.syllabus
                 }
             })
             .then((response) => {

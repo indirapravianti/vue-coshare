@@ -29,15 +29,17 @@
         </v-col>
         <v-col md="2" offset-lg="1" justify="center">
             <p class="font-weight-bold">Created by<br> {{singleCourse.creator}}</p>
-
-            <v-btn depressed small color="#3b5998" class="white--text px-5 py-5 rounded-tr-xl rounded-bl-xl">
-              <v-icon left>mdi-facebook</v-icon>
-              <span>Share</span>
-            </v-btn>
-            <v-btn depressed small color="#00acee" class="white--text px-5 py-5 mt-4 rounded-tr-xl rounded-bl-xl">
-              <v-icon left>mdi-twitter</v-icon>
-              <span>Tweet</span>
-            </v-btn>
+            <div>
+              <v-btn depressed small color="#3b5998" class="white--text px-5 py-5 mb-4 rounded-tr-xl rounded-bl-xl">
+                <v-icon left>mdi-facebook</v-icon>
+                <span>Share</span>
+              </v-btn>
+              <v-spacer></v-spacer>
+              <v-btn depressed small color="#00acee" class="white--text px-5 py-5 rounded-tr-xl rounded-bl-xl">
+                <v-icon left>mdi-twitter</v-icon>
+                <span>Tweet</span>
+              </v-btn>
+            </div>
         </v-col>
       </v-row>
       <v-divider></v-divider>
