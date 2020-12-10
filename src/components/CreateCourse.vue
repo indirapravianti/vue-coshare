@@ -35,7 +35,6 @@
                     </div>
                 </div>
             </div>
-            {{syllabus}}
             <div class="mt-6 mb-6">
                 <v-btn color="blue-grey darken-1" class="white--text" @click="addChapter">Add</v-btn>
             </div>
