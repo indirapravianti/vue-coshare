@@ -1,6 +1,13 @@
 <template>
   <div>
-      <h2>Courses</h2>
+      <v-row>
+        <h2>Courses</h2>
+        <v-btn v-if="isLogin" class="ml-5" elevation="0" color="primary" to="create">
+          <v-icon>mdi-plus</v-icon>
+          Create Course
+        </v-btn>  
+      </v-row>
+      
       <v-row>
           <v-col sm="6" md="4" v-for="course in courses" v-bind:key="course.courseId">
             <router-link v-bind:to="'course/' + course.courseId" class="text-decoration-none">
@@ -19,6 +26,11 @@ export default {
     components: {
         VerticalCard
     },
-    props: ["courses"]
+    props: ["courses"],
+    computed: {
+        isLogin() {
+        return this.$store.state.isLogin
+      }
+    }
 }
 </script>
