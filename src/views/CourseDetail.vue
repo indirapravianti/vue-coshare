@@ -74,6 +74,14 @@
             <v-card elevation="0" height="300">
               <v-card-title class="font-weight-bold py-4 px-4">
                 <v-icon left color="primary">mdi-trophy-award</v-icon>Leaderboard</v-card-title>
+                <div v-for="user in leaderboard" :key="user.name" class="px-4">
+                  <p class="d-inline">
+                    {{user.name}}
+                  </p>
+                  <p class="d-inline">
+                    {{user.score}}
+                  </p>
+                </div>
             </v-card>
         </v-col>
       </v-row>
@@ -89,7 +97,15 @@ export default {
     return {
       singleCourse: null,
       selectedIndex: null,
-      showPage: false
+      showPage: false,
+      leaderboard: [
+        {name: 'benayacp', score: '718,535'},
+        {name: 'indirapravianti', score: '610,506'},
+        {name: 'taylorswift', score: '587,842'},
+        {name: 'dualipa', score: '564,526'},
+        {name: 'hamilton', score: '497,236'},
+        {name: 'princecharles', score: '495,506'},
+      ]
     }
   },
   methods: {
@@ -114,7 +130,7 @@ export default {
         }
       }
   },
-  mounted: function() {
+  created: function() {
     this.getData()
     this.show()
   },

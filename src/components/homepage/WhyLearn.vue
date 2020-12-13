@@ -1,5 +1,5 @@
 <template>
-    <v-container>
+    <v-container class="mt-10">
         <h1 justify="center" align="center" class="primary--text">Why learn with Coshare?</h1>
         <v-row justify="center" align="center">
             <v-col md="6" lg="6">

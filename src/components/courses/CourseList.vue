@@ -10,7 +10,7 @@
       
       <v-row>
           <v-col sm="6" md="4" v-for="course in courses" v-bind:key="course.courseId">
-            <router-link v-bind:to="'course/' + course.courseId" class="text-decoration-none">
+            <router-link v-bind:to="{name: 'CourseDetail', params: {id: course.courseId}}" class="text-decoration-none">
                   <VerticalCard v-bind:course="course"/>
             </router-link>
           </v-col>

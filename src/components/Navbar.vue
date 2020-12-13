@@ -1,6 +1,6 @@
 <template>
       <nav>
-        <v-toolbar flat app class="secondary px-16">
+        <v-toolbar flat app fixed class="secondary px-16">
 
             <v-btn depressed small color="secondary" class="primary--text hidden-sm-and-up" @click="drawer = !drawer">
               <v-icon>mdi-menu</v-icon>
@@ -14,30 +14,30 @@
             
 
             <v-toolbar-items class="hidden-xs-only ml-10">
-              <v-btn to="courses" text class="third--text">
+              <v-btn to="courses" text class="third--text font-weight-bold">
                 Courses
               </v-btn> 
             </v-toolbar-items>
 
                <v-spacer />
             
-              <v-toolbar-items v-if="isLogin" class="hidden-xs-only">
-              <v-btn text class="third--text">
-                Hello, {{username}}
+            <v-toolbar-items v-if="isLogin" class="hidden-xs-only">
+              <v-btn text class="third--text font-weight-bold">
+                  Hello, {{username}}
               </v-btn>
-              <v-btn @click.prevent="logout" text class="third--text">
+              <v-btn @click.prevent="logout" text class="third--text font-weight-bold">
                 LOGOUT
               </v-btn>
             </v-toolbar-items>
 
-              <v-toolbar-items v-else class="hidden-xs-only">
-              <v-btn to="login" text class="third--text">
+            <v-toolbar-items v-else class="hidden-xs-only">
+              <v-btn to="login" text class="third--text font-weight-bold">
                 LOGIN
               </v-btn>
-              <v-btn to="signup" text class="third--text ml-10">
+              <v-btn to="signup" text class="third--text ml-10 font-weight-bold">
                 SIGN UP
               </v-btn>
-           </v-toolbar-items>
+            </v-toolbar-items>
         </v-toolbar>
 
         <v-navigation-drawer v-model="drawer" absolute temporary left color="third">

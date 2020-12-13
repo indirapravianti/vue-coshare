@@ -1,7 +1,7 @@
 <template>
   <v-content>
     <v-form>
-      <v-card class="mx-auto mt-9 px-8 py-8 elevation-0" width="500">
+      <v-card class="mx-auto my-9 px-8 py-8 elevation-0" width="500">
       <v-card-title :class="fontSize" class="font-weight-black display-1">Create your account now!</v-card-title>
       <p class="body-2">Join the fastest, most enjoyable way to learn a new skill. 
           We'll personalise your learning experience from the get go. 

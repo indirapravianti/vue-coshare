@@ -1,6 +1,6 @@
 <template>
   <v-content>
-    <v-card class="mx-auto mt-9 px-8 py-8 elevation-0" width="500">
+    <v-card class="mx-auto my-9 px-8 py-8 elevation-0" width="500">
       <v-card-title class="font-weight-black display-2" align="center">Log in to have fun and learn faster</v-card-title>
       <v-alert color="error" :value="error" icon="mdi-close" class="white--text">Username or password is invalid</v-alert>
       <v-card-text class="mt-9">

@@ -1,24 +1,22 @@
 <template>
-  <v-app >
-    <v-main>
-      <Navbar/>
+  <v-app>
+      <MyNavbar/>
         <router-view>
         </router-view>
-      <Footer/>
-    </v-main>
+      <MyFooter/>
   </v-app>
 </template>
 
 <script>
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+import MyNavbar from './components/Navbar';
+import MyFooter from './components/Footer';
 
 export default {
   name: 'App',
 
   components: {
-    Navbar,
-    Footer
+    MyNavbar,
+    MyFooter
   },
 
   data: () => ({
@@ -33,7 +31,7 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap');
 * {
   font-family: 'Open Sans', sans-serif;
 }
