@@ -48,11 +48,6 @@
                 <v-img src="/img/why_4.png" alt="" :height="sheetHeight"></v-img>
             </v-col>
         </v-row>
-        <!-- <v-row justify="center" align="center">
-            <h1 class="primary--text">Don't miss out!</h1>
-            <p>Join a community of over 50 million users who are already learning fast 
-                and having fun with Coshare.</p>
-        </v-row> -->
     </v-container>
 </template>
 
@@ -73,7 +68,7 @@ export default {
                  case 'xl': return '500px'
               }
           return '300px'
-          }
-      }
+        }
+    }
 }
 </script>

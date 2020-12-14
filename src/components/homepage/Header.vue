@@ -40,7 +40,6 @@ export default {
 </script>
 
 <style>
-
 .float-on-hover {
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
@@ -52,12 +51,10 @@ export default {
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
-
 .float-on-hover:hover, .float-on-hover:focus, .float-on-hover:active {
   -webkit-transform: translateY(-10px);
   transform: translateY(-10px);
 }
-
 .giant-text {
     font-size: 56px;
     font-weight: 800;

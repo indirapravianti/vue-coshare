@@ -12,14 +12,13 @@
               </v-btn> 
             </v-toolbar-title>
             
-
             <v-toolbar-items class="hidden-xs-only ml-10">
               <v-btn to="courses" text class="third--text font-weight-bold">
                 Courses
               </v-btn> 
             </v-toolbar-items>
 
-               <v-spacer />
+            <v-spacer />
             
             <v-toolbar-items v-if="isLogin" class="hidden-xs-only">
               <v-btn text class="third--text font-weight-bold">

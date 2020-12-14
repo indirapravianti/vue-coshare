@@ -12,7 +12,7 @@
       <v-card-text class="mt-9">
         <v-text-field v-model="username" label="Username" prepend-icon="mdi-account-circle"></v-text-field>
         <v-text-field v-model="email" label="E-mail" prepend-icon="mdi-email"></v-text-field>
-        <v-text-field v-model="password" label="Password" type="password" prepend-icon="mdi-lock"></v-text-field>
+        <v-text-field v-on:keyup.enter="register" v-model="password" label="Password" type="password" prepend-icon="mdi-lock"></v-text-field>
       </v-card-text>
       <v-card-actions class="mt-4">
         <v-btn @click.prevent="register" depressed block elevation="2" class="rounded-xl text-none px-6 py-6" color="primary">Register</v-btn>

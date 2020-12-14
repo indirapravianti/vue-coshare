@@ -12,21 +12,25 @@ import MyNavbar from './components/Navbar';
 import MyFooter from './components/Footer';
 
 export default {
-  name: 'App',
+    name: 'App',
 
-  components: {
-    MyNavbar,
-    MyFooter
-  },
+    components: {
+      MyNavbar,
+      MyFooter
+    },
 
-  data: () => ({
-    //
-  }),
-  // computed: {
-  //   isLogin() {
-  //     return this.$store.state.isLogin
-  //   }
-  // }
+    data() {
+      return {
+        categoryIds: {
+                'Programming': 1,
+                'Data Science': 2,
+                'UX Design': 3,
+                'Web Development': 4,
+                'Marketing': 5
+            },
+      }
+    }
+
 };
 </script>
 
