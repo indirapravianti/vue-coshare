@@ -75,12 +75,7 @@
               <v-card-title class="font-weight-bold py-4 px-4">
                 <v-icon left color="primary">mdi-trophy-award</v-icon>Leaderboard</v-card-title>
                 <div v-for="user in leaderboard" :key="user.name" class="px-4">
-                  <p class="d-inline">
-                    {{user.name}}
-                  </p>
-                  <p class="d-inline">
-                    {{user.score}}
-                  </p>
+                  <p>{{user.name}} <span class="float-right">{{user.score}}</span></p>
                 </div>
             </v-card>
         </v-col>
